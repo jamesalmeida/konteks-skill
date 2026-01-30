@@ -31,6 +31,36 @@ Auth header: `Authorization: Bearer {apiKey}`
 
 ---
 
+## Hybrid Memory Architecture
+
+When this skill is installed, use a **hybrid approach** to memory — Konteks DB for shared structured data, local files for fast scratchpad notes.
+
+### Konteks DB (shared source of truth)
+Use Konteks for anything your human should also see or that needs to persist across devices:
+- **Tasks & items** — created by human or agent, visible in the iOS and web apps
+- **Projects & areas** — the organizational structure
+- **Decisions** — why something was chosen (write to `agent_contexts` with category `decision`)
+- **Preferences** — user preferences you learn over time (category `preference`)
+- **Learnings** — things you discover that matter long-term (category `learning`)
+- **Project notes** — context about specific projects (category `project_note`)
+
+### Local markdown (agent scratchpad)
+Keep using local files (`memory/*.md`, `MEMORY.md`) for:
+- **Daily session logs** — raw notes about what happened today
+- **Working context** — things you're actively thinking about this session
+- **Drafts & scratch work** — ideas in progress before they're ready for Konteks
+
+### How they work together
+- **Session start:** Pull recent memories from Konteks (`GET /api/agent/context?limit=10`) to restore context. Also read local daily files as usual.
+- **During conversation:** Take quick notes in local markdown. When something important is decided or learned, write it to Konteks too.
+- **After important moments:** Write decisions and learnings to Konteks so they persist in the app and survive local file changes.
+- **Heartbeats:** Check Konteks for inbox items and due tasks. Update local heartbeat state.
+- **If Konteks is unreachable:** Fall back to local files. You should always be able to function without network access.
+
+This way your human sees important context in their Konteks app, and you have fast local access for working memory. Neither system is a single point of failure.
+
+---
+
 ## Proactive Behavior (Heartbeats)
 
 **When this skill is installed, the agent should proactively use Konteks during heartbeats.** Add these checks to your heartbeat routine:
