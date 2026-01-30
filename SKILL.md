@@ -5,6 +5,8 @@ description: Connect your Clawdbot/Moltbot to your Konteks account (konteks.app)
 
 # Konteks — Agent Context Layer
 
+**Source:** https://github.com/jamesalmeida/konteks-skill
+
 Connect to your human's Konteks account for persistent memory, tasks, notes, and projects.
 
 ## Setup
