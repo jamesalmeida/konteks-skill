@@ -2,7 +2,7 @@
 
 **Give your AI agent persistent memory, tasks, notes, and project context.**
 
-A [OpenClaw](https://github.com/openclaw/openclaw) skill that connects your agent to your [Konteks](https://konteks.app) account. Your agent can read and write tasks, notes, memories, and projects — maintaining context across conversations.
+An [OpenClaw](https://github.com/openclaw/openclaw) skill that connects your agent to your [Konteks](https://konteks.app) account. Your agent can read and write tasks, notes, memories, and projects — maintaining context across conversations.
 
 ## Why?
 
@@ -27,9 +27,9 @@ AI agents forget everything between sessions. Konteks gives them a persistent la
 
 ## Installation
 
-### Via ClawdHub
+### Via ClawHub
 ```bash
-clawdhub install konteks
+clawhub install konteks
 ```
 
 ### Manual
@@ -138,7 +138,7 @@ See [SKILL.md](./SKILL.md) for the full API reference with examples.
 - [Konteks Web App](https://konteks.app) — the web dashboard
 - [Konteks iOS App](https://github.com/jamesalmeida/konteks-ios) — native iOS app (in development)
 - [OpenClaw](https://openclaw.ai/) — the AI agent framework
-- [ClawdHub](https://clawdhub.com) — skill marketplace
+- [ClawHub](https://clawhub.com/jamesalmeida/konteks) — skill marketplace
 
 ## License
 
